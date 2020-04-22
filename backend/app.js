@@ -1,11 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { fetchUser } = require('./utils/fetcher');
 
 const app = express();
 
-app.use(bodyParser);
+app.use(bodyParser.json());
+app.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
 
-app.get('/', (req, res) => {
+app.get('/api/users/:username', async (req, res) => {
+  const { params: { username } } = req;
+  const user = await fetchUser(username);
+
+  res.json(user);
+});
+
+app.get('/api', (req, res) => {
   res.json({ foo: 'bar' });
 });
 
