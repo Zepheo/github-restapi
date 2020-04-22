@@ -1,0 +1,23 @@
+{
+  "name": "github-restapi",
+  "version": "1.0.0",
+  "description": "github restapi project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zepheo/github-restapi.git"
+  },
+  "keywords": [
+    "github",
+    "restapi"
+  ],
+  "author": "Douglas Eskelius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zepheo/github-restapi/issues"
+  },
+  "homepage": "https://github.com/Zepheo/github-restapi#readme"
+}
