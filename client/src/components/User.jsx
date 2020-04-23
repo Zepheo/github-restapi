@@ -14,7 +14,6 @@ const User = () => {
     document.getElementById('searchForm').reset();
     
     const { data:userInfo } = await axios.get(`${baseUrl}/${searchValue}`);
-    console.log(userInfo.name);
     
     setSearched(true);
     setUser(userInfo);

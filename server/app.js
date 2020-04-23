@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { fetchUser } = require('./utils/fetcher');
+const { fetchUser, fetchUserCommits } = require('./utils/fetcher');
 
 const app = express();
 
@@ -13,6 +13,13 @@ app.use((req, res, next) => {
 app.get('/api/users/:username', async (req, res) => {
   const { params: { username } } = req;
   const user = await fetchUser(username);
+
+  res.json(user);
+});
+
+app.get('/api/users/:username/commits', async (req, res) => {
+  const { params: { username } } = req;
+  const user = await fetchUserCommits(username);
 
   res.json(user);
 });
