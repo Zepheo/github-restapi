@@ -1,0 +1,26 @@
+.search-form {
+  text-align: center;
+}
+.search-form-username {
+  background-color: #f3d2c1;
+  border-radius: 10px;
+  line-height: 1.5;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.search-form-submit {
+  line-height: 1.5;
+  font-size: 18px;
+  border-radius: 10px;
+  border-color: #f582ae;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: #fef6e4;
+  color: #f582ae;
+}
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

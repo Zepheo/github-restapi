@@ -2,6 +2,7 @@ const repoHandler = (repos) => {
   const merged = [];
 
   repos.forEach((item) => {
+    if (!item.hasOwnProperty('language') || item.language === null) item.language = 'Unknown';
     const existing = merged.filter((v) => {
       return v.language === item.language;
     });

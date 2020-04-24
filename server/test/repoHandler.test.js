@@ -48,7 +48,9 @@ describe('the repoHandler', () => {
       {},
     ]
   }`, () => {
-    const res = repoHandler(testUserRepos);    
+    const res = repoHandler(testUserRepos);
+    console.log(res);
+     
     expect(res[0].repos[0]).toHaveProperty('name');
     expect(res[0].repos[0]).toHaveProperty('size');
     expect(res[0].repos[0]).toHaveProperty('created');

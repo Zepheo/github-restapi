@@ -16,7 +16,7 @@ export const CommitChart = ({username}) => {
   },[username]);
 
   if (!commits) {
-    return <div></div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -24,8 +24,10 @@ export const CommitChart = ({username}) => {
       data={{
         labels: commits.map(c => c.date),
         datasets: [{
-          label: '# of commits',
+          label: 'latest commits',
           data: commits.map(c => c.numOfCommits),
+          borderColor: '#f582ae',
+          backgroundColor: 'rgba(245, 130, 174, 0.3)'
         }]
       }}
       options={{
@@ -39,12 +41,13 @@ export const CommitChart = ({username}) => {
             }
           }],
           xAxes: [{
-            display: false
+            display: true
           }]
         },
         legend: {
-          position: 'bottom',
-          align: 'end'
+          labels: {
+            boxWidth: 12
+          }
         },
         elements: {
           line: {

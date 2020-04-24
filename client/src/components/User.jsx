@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import UserInfo from './UserInfo';
+import RepoInfo from './RepoInfo';
+import '../styles/User.css';
 
 const baseUrl = '/api/users';
 
@@ -44,7 +46,10 @@ const User = () => {
         <section>
           Loading...
         </section>:
-        <UserInfo user={user} />:
+        <section className='user-info-container'>
+          <UserInfo user={user} />
+          <RepoInfo username={user.name} reposCount={user.repos}/>
+        </section>:
         <></>
       }
     </>

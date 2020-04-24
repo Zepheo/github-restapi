@@ -1,0 +1,18 @@
+.repo-per-language-container {
+  width: 300px;
+  flex: 1;
+}
+.commits-per-language-container {
+  width: 300px;
+  flex: 1;
+}
+.top-ten-repo-commits {
+  width: 300px;
+  flex: 1;
+}
+.chart-container {
+  display: flex;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}

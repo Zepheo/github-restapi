@@ -3,3 +3,8 @@
   margin: 0;
   padding: 0;
 }
+html {
+  background-color: #fef6e4;
+  padding: 5%;
+  font-family: Helvetica;
+}
