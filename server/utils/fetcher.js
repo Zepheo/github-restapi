@@ -3,8 +3,8 @@ const { userMapper } = require('./userMapper');
 const { commitHandler } = require('./commitHandler');
 const { repoHandler } = require('./repoHandler');
 const { headerHandler } = require('./headerHandler');
-const testUser = require('../test/rawdata/testUser.json')
-const testUserEvents = require('../test/rawdata/testUserEvents.json')
+const testUser = require('../test/rawdata/testUser.json');
+const testUserEvents = require('../test/rawdata/testUserEvents.json');
 const testUserRepos = require('../test/rawdata/testUserRepos.json');
 const testRepoHeaders = require('../test/rawdata/testRepoHeaders.json');
 
