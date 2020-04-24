@@ -1,8 +1,10 @@
 const axios = require('axios');
 const { userMapper } = require('./userMapper');
 const { commitHandler } = require('./commitHandler');
+const { repoHandler } = require('./repoHandler');
 const testUser = require('../test/rawdata/testUser.json')
 const testUserEvents = require('../test/rawdata/testUserEvents.json')
+const testUserRepos = require('../test/rawdata/testUserRepos.json');
 
 const baseUrl = 'https://api.github.com/';
 
@@ -18,7 +20,16 @@ const fetchUserCommits = async (username) => {
   return Promise.resolve(commitHandler(testUserEvents));
 };
 
+const fetchUserRepos = async (username) => {
+  // const { data } = await axios.get(`${baseUrl}users/${username.toLowerCase()}/repos?per_page=100`);
+  // return Promise.resolve(repoHandler(data));
+  return Promise.resolve(repoHandler(testUserRepos));
+};
+
+
+
 module.exports = {
   fetchUser,
-  fetchUserCommits
+  fetchUserCommits,
+  fetchUserRepos
 };

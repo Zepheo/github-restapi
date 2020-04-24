@@ -12,7 +12,7 @@ const mergeDates = (commits) => {
 
   commits.forEach((item) => {
     const existing = merged.filter((v) => {
-      return v.date == item.date;
+      return v.date === item.date;
     });
 
     if (existing.length) {
