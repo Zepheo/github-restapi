@@ -5,16 +5,20 @@ const repoHandler = (repos) => {
     const existing = merged.filter((v) => {
       return v.language === item.language;
     });
+    const mapped = repoMapper(item)
 
     if (existing.length) {
       const existingIndex = merged.indexOf(existing[0]);
       merged[existingIndex].count += 1;
-      merged[existingIndex].repos = [...merged[existingIndex].repos, repoMapper(item)]
+      merged[existingIndex].commitsForLanguage += mapped.commitCount;
+      merged[existingIndex].repos = [...merged[existingIndex].repos, mapped]
     } else {
+      
       merged.push({
         language: item.language,
         count: 1,
-        repos: [repoMapper(item)]
+        commitsForLanguage: mapped.commitCount,
+        repos: [mapped]
       });
     }
   });
@@ -22,13 +26,20 @@ const repoHandler = (repos) => {
   return merged;
 };
 
-const repoMapper = (repo) => ({
-  name: repo.name,
-  size: repo.size,
-  created: repo.created_at,
-  lastUpdated: repo.updated_at,
-  commitsUrl: repo.commits_url,
-  githubUrl: repo.html_url
-});
+const repoMapper = (repo) => {
+  const { name, size, created_at, updated_at, commits_url, html_url, commitCount } = repo;
+  
+  const mappedRepo = {
+    name: name,
+    size: size,
+    created: created_at,
+    lastUpdated: updated_at,
+    commitsUrl: commits_url.replace('{/sha}', ''),
+    githubUrl: html_url,
+    commitCount: commitCount
+  };
+    
+  return mappedRepo;
+};
 
 module.exports.repoHandler = repoHandler;
