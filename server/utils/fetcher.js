@@ -16,7 +16,7 @@ const options = {
   }
 };
 
-/* const fetchUser = async (username) => {
+const fetchUser = async (username) => {
   const { data } = await axios.get(`${baseUrl}users/${username.toLowerCase()}`, options);
   return Promise.resolve(userMapper(data));
 };
@@ -36,8 +36,8 @@ const fetchRepoCommits = async (repo) => {
   const { headers } = await axios.get(`${repo.commits_url.replace('{/sha}', '')}?per_page=1`, options);
   return Promise.resolve(headerHandler(headers));
 };
- */
-const fetchUser = async (username) => {
+
+/* const fetchUser = async (username) => {
   return Promise.resolve(userMapper(testUser));
 };
 
@@ -53,7 +53,7 @@ const fetchUserRepos = async (username) => {
 const fetchRepoCommits = async (repo) => {
   return Promise.resolve(headerHandler(testRepoHeaders));
 };
-
+ */
 
 
 module.exports = {
