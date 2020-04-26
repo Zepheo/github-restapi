@@ -51,7 +51,7 @@ const RepoInfo = ({username, reposCount}) => {
       }
     },
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: false
   }
 
   return (
@@ -65,7 +65,14 @@ const RepoInfo = ({username, reposCount}) => {
               backgroundColor: repos.map(r => colors[r.language].color)
             }]
           }}
-          options={chartOptions} 
+          options={{
+            ...chartOptions,
+            title: {
+              display: true,
+              fontFamily: 'Helvetica',
+              text: 'Repos per language',
+              fontSize: 18
+            }}} 
         />
       </div>
       <div className="commits-per-language-container">
@@ -77,7 +84,14 @@ const RepoInfo = ({username, reposCount}) => {
               backgroundColor: repos.map(r => colors[r.language].color)
             }]
           }}
-          options={chartOptions} 
+          options={{
+            ...chartOptions,
+            title: {
+              display: true,
+              fontFamily: 'Helvetica',
+              text: 'Commits per language',
+              fontSize: 18
+            }}} 
         />      
       </div>
       <div className="top-ten-repo-commits">
@@ -89,7 +103,14 @@ const RepoInfo = ({username, reposCount}) => {
               backgroundColor: commitColors
             }]
           }}
-          options={chartOptions} 
+          options={{
+            ...chartOptions,
+            title: {
+              display: true,
+              fontFamily: 'Helvetica',
+              text: 'Commits per repo',
+              fontSize: 18
+            }}} 
         />
       </div>
     </section>
